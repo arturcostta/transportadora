@@ -1,5 +1,17 @@
 package com.artur.service;
 
 public enum TipoFrete {
-    NORMAL,SEDEX;
+    NORMAL{
+        @Override
+        public Frete obterFrete() {
+            return new Normal();
+        }
+    }, SEDEX{
+        @Override
+        public Frete obterFrete() {
+            return new Sedex();
+        }
+    };
+
+    public abstract Frete obterFrete();
 }
